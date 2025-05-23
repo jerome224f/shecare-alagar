@@ -7,12 +7,6 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    function toggleDarkMode() {
-      document.documentElement.classList.toggle('dark');
-    }
-  </script>
   <style>
     .logo-circle {
       width: 60px;
@@ -30,30 +24,47 @@
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition duration-300">
 
+  <script>
+    // Initialize AOS
+    AOS.init();
+
+    // Dark mode with localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    }
+  </script>
+
   <!-- Navbar -->
   <nav class="bg-white dark:bg-gray-800 shadow fixed w-full z-10">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
+    <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+      <div class="flex items-center space-x-3 mb-2 md:mb-0">
         <div class="logo-circle">
           <img src="logo.jpg" alt="SHE CARE Logo" />
         </div>
-        <span class="text-xl md:text-2xl font-bold text-green-600">SHE CARE</span>
-        <span class="text-sm text-yellow-500 hidden md:inline">– Sree Alagar Enterprises</span>
+        <div>
+          <div class="text-xl md:text-2xl font-bold text-green-600">SHE CARE</div>
+          <div class="text-sm text-yellow-500">Sree Alagar Enterprises</div>
+        </div>
       </div>
-      <div class="flex items-center space-x-4">
-        <a href="#about" class="hover:text-green-600 transition">About</a>
-        <a href="#services" class="hover:text-green-600 transition">Services</a>
-        <a href="#contact" class="hover:text-green-600 transition">Contact</a>
+      <div class="flex flex-wrap items-center space-x-4">
+        <a href="#about" class="hover:text-green-600 transition text-sm md:text-base">About</a>
+        <a href="#services" class="hover:text-green-600 transition text-sm md:text-base">Services</a>
+        <a href="#contact" class="hover:text-green-600 transition text-sm md:text-base">Contact</a>
         <button onclick="document.getElementById('enquiry').scrollIntoView({behavior: 'smooth'})"
-          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Enquiry</button>
-        <button onclick="toggleDarkMode()" class="ml-2 text-sm border px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Dark Mode</button>
+          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition text-sm md:text-base">Enquiry</button>
+        <button onclick="toggleDarkMode()" class="text-sm border px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Dark Mode</button>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="pt-24 bg-green-50 dark:bg-gray-800">
-    <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+  <section class="pt-24 bg-green-50 dark:bg-gray-800 text-center px-4">
+    <div class="container mx-auto" data-aos="fade-up">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Trusted Garment Partner</h1>
       <p class="text-lg md:text-xl mb-6">Delivering quality, customized garments for every need.</p>
       <a href="#contact" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition">Get in Touch</a>
@@ -61,16 +72,16 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-16 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-4" data-aos="fade-right">
+  <section id="about" class="py-16 bg-white dark:bg-gray-900 px-4">
+    <div class="container mx-auto" data-aos="fade-right">
       <h2 class="text-3xl font-bold mb-6">About Us</h2>
-      <p class="mb-4">SHE CARE – Sree Alagar Enterprises is a leading provider of customized garment solutions tailored to your business or personal needs. From uniforms to branded apparel, we combine quality with creativity and timely delivery.</p>
+      <p>SHE CARE – Sree Alagar Enterprises is a leading provider of customized garment solutions tailored to your business or personal needs. From uniforms to branded apparel, we combine quality with creativity and timely delivery.</p>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="container mx-auto px-4" data-aos="fade-left">
+  <section id="services" class="py-16 bg-gray-50 dark:bg-gray-800 px-4">
+    <div class="container mx-auto" data-aos="fade-left">
       <h2 class="text-3xl font-bold mb-6">Our Services</h2>
       <ul class="list-disc list-inside space-y-2">
         <li>Corporate & Retail Apparel</li>
@@ -82,8 +93,8 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-4" data-aos="fade-up">
+  <section id="contact" class="py-16 bg-white dark:bg-gray-900 px-4">
+    <div class="container mx-auto" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
       <p class="mb-4 font-semibold text-lg">DM US OR CALL</p>
       <p class="mb-2"><a href="tel:9442190903" class="text-green-600 hover:underline">94421 90903</a> | <a href="tel:8825498421" class="text-green-600 hover:underline">88254 98421</a></p>
@@ -114,7 +125,7 @@
           <label><input type="checkbox" name="Garment Type[]" value="Trousers" /> Trousers</label>
           <label><input type="checkbox" name="Garment Type[]" value="Jackets" /> Jackets</label>
           <label><input type="checkbox" name="Garment Type[]" value="Uniforms" /> Uniforms</label>
-          <label><input type="text" name="Garment Type Other" placeholder="Others (specify)" class="w-full border p-2 rounded dark:bg-gray-800" /></label>
+          <input type="text" name="Garment Type Other" placeholder="Others (specify)" class="w-full border p-2 rounded dark:bg-gray-800 col-span-2" />
         </div>
 
         <label class="block font-semibold">Purpose:</label>
