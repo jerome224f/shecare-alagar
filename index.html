@@ -6,7 +6,7 @@
   <title>SHE CARE – Sree Alagar Enterprises</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <style>
     .logo-circle {
       width: 60px;
@@ -22,25 +22,10 @@
     }
   </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition duration-300">
-
-  <script>
-    // Initialize AOS
-    AOS.init();
-
-    // Dark mode with localStorage
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
-    }
-    function toggleDarkMode() {
-      const html = document.documentElement;
-      html.classList.toggle('dark');
-      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-    }
-  </script>
+<body class="bg-white text-gray-800">
 
   <!-- Navbar -->
-  <nav class="bg-white dark:bg-gray-800 shadow fixed w-full z-10">
+  <nav class="bg-white shadow fixed w-full z-10">
     <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
       <div class="flex items-center space-x-3 mb-2 md:mb-0">
         <div class="logo-circle">
@@ -57,13 +42,13 @@
         <a href="#contact" class="hover:text-green-600 transition text-sm md:text-base">Contact</a>
         <button onclick="document.getElementById('enquiry').scrollIntoView({behavior: 'smooth'})"
           class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition text-sm md:text-base">Enquiry</button>
-        <button onclick="toggleDarkMode()" class="text-sm border px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Dark Mode</button>
+        <!-- Removed dark mode button -->
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="pt-24 bg-green-50 dark:bg-gray-800 text-center px-4">
+  <section class="pt-24 bg-green-50 text-center px-4">
     <div class="container mx-auto" data-aos="fade-up">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Trusted Garment Partner</h1>
       <p class="text-lg md:text-xl mb-6">Delivering quality, customized garments for every need.</p>
@@ -72,7 +57,7 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-16 bg-white dark:bg-gray-900 px-4">
+  <section id="about" class="py-16 bg-white px-4">
     <div class="container mx-auto" data-aos="fade-right">
       <h2 class="text-3xl font-bold mb-6">About Us</h2>
       <p>SHE CARE – Sree Alagar Enterprises is a leading provider of customized garment solutions tailored to your business or personal needs. From uniforms to branded apparel, we combine quality with creativity and timely delivery.</p>
@@ -80,7 +65,7 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-16 bg-gray-50 dark:bg-gray-800 px-4">
+  <section id="services" class="py-16 bg-gray-50 px-4">
     <div class="container mx-auto" data-aos="fade-left">
       <h2 class="text-3xl font-bold mb-6">Our Services</h2>
       <ul class="list-disc list-inside space-y-2">
@@ -93,7 +78,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-white dark:bg-gray-900 px-4">
+  <section id="contact" class="py-16 bg-white px-4">
     <div class="container mx-auto" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
       <p class="mb-4 font-semibold text-lg">DM US OR CALL</p>
@@ -105,16 +90,16 @@
   </section>
 
   <!-- Enquiry Form -->
-  <section id="enquiry" class="py-16 bg-gray-50 dark:bg-gray-800 px-4">
-    <div class="max-w-3xl mx-auto bg-white dark:bg-gray-900 p-8 shadow-lg rounded" data-aos="zoom-in">
+  <section id="enquiry" class="py-16 bg-gray-50 px-4">
+    <div class="max-w-3xl mx-auto bg-white p-8 shadow-lg rounded" data-aos="zoom-in">
       <h2 class="text-3xl font-bold mb-6 text-center">Garment Enquiry Form</h2>
       <form action="https://formsubmit.co/shecare2011@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-4">
         <input type="hidden" name="_subject" value="New Garment Enquiry" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="box" />
 
-        <input type="text" name="Full Name" placeholder="Full Name" required class="w-full border p-2 rounded dark:bg-gray-800" />
-        <input type="text" name="Contact Info" placeholder="Email or Phone" required class="w-full border p-2 rounded dark:bg-gray-800" />
+        <input type="text" name="Full Name" placeholder="Full Name" required class="w-full border p-2 rounded" />
+        <input type="text" name="Contact Info" placeholder="Email or Phone" required class="w-full border p-2 rounded" />
 
         <label class="block font-semibold">Garment Type:</label>
         <div class="grid grid-cols-2 gap-2">
@@ -125,11 +110,11 @@
           <label><input type="checkbox" name="Garment Type[]" value="Trousers" /> Trousers</label>
           <label><input type="checkbox" name="Garment Type[]" value="Jackets" /> Jackets</label>
           <label><input type="checkbox" name="Garment Type[]" value="Uniforms" /> Uniforms</label>
-          <input type="text" name="Garment Type Other" placeholder="Others (specify)" class="w-full border p-2 rounded dark:bg-gray-800 col-span-2" />
+          <input type="text" name="Garment Type Other" placeholder="Others (specify)" class="w-full border p-2 rounded col-span-2" />
         </div>
 
         <label class="block font-semibold">Purpose:</label>
-        <select name="Purpose" class="w-full border p-2 rounded dark:bg-gray-800">
+        <select name="Purpose" class="w-full border p-2 rounded">
           <option>Corporate</option>
           <option>Retail</option>
           <option>School Uniform</option>
@@ -138,7 +123,7 @@
           <option>Others</option>
         </select>
 
-        <textarea name="Quantity and Sizes" rows="3" placeholder="Quantity & Sizes (e.g. 100 pcs – 40 M, 30 L, 30 XL)" class="w-full border p-2 rounded dark:bg-gray-800"></textarea>
+        <textarea name="Quantity and Sizes" rows="3" placeholder="Quantity & Sizes (e.g. 100 pcs – 40 M, 30 L, 30 XL)" class="w-full border p-2 rounded"></textarea>
 
         <label class="block font-semibold">Fabric Preferences:</label>
         <div class="grid grid-cols-2 gap-2">
@@ -158,14 +143,22 @@
         </div>
 
         <label class="block mt-2">Upload Design/Logo:</label>
-        <input type="file" name="Design Upload" class="w-full border p-2 rounded dark:bg-gray-800" />
+        <input type="file" name="Design Upload" class="w-full border p-2 rounded" />
 
-        <input type="text" name="Preferred Colors" placeholder="Preferred Colors" class="w-full border p-2 rounded dark:bg-gray-800" />
-        <textarea name="Delivery Info" rows="3" placeholder="Expected Delivery Date & Location" class="w-full border p-2 rounded dark:bg-gray-800"></textarea>
+        <input type="text" name="Preferred Colors" placeholder="Preferred Colors" class="w-full border p-2 rounded" />
+        <textarea name="Delivery Info" rows="3" placeholder="Expected Delivery Date & Location" class="w-full border p-2 rounded"></textarea>
 
         <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition w-full">Submit Enquiry</button>
       </form>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize AOS after DOM is ready
+      AOS.init();
+    });
+  </script>
+
 </body>
 </html>
