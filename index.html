@@ -2,11 +2,12 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SHE CARE – Sree Alagar Enterprises</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <style>
     .logo-circle {
       width: 60px;
@@ -22,160 +23,193 @@
     }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800 overflow-x-hidden">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow fixed w-full z-10">
-    <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
-      <div class="flex items-center space-x-3 mb-2 md:mb-0">
-        <div class="logo-circle">
-          <img src="logo.jpg" alt="SHE CARE Logo" />
-        </div>
-        <div>
-          <div class="text-xl md:text-2xl font-bold text-green-600">SHE CARE</div>
-          <div class="text-sm text-yellow-500">Sree Alagar Enterprises</div>
-        </div>
+<!-- Navbar -->
+<nav class="bg-white shadow fixed w-full z-50" x-data="{ open: false }">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <div class="logo-circle">
+        <img src="logo.jpg" alt="SHE CARE Logo" />
       </div>
-      <div class="flex flex-wrap items-center space-x-4">
-        <a href="#about" class="hover:text-green-600 transition text-sm md:text-base">About</a>
-        <a href="#services" class="hover:text-green-600 transition text-sm md:text-base">Services</a>
-        <a href="#contact" class="hover:text-green-600 transition text-sm md:text-base">Contact</a>
-        <button onclick="document.getElementById('enquiry').scrollIntoView({behavior: 'smooth'})"
-          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition text-sm md:text-base">Enquiry</button>
+      <div>
+        <div class="text-xl md:text-2xl font-bold text-green-600">SHE CARE</div>
+        <div class="text-sm text-yellow-500">Sree Alagar Enterprises</div>
       </div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="pt-36 md:pt-40 bg-green-50 text-center px-4 min-h-screen flex items-center">
-    <div class="container mx-auto" data-aos="fade-up">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Trusted Garment Partner</h1>
-      <p class="text-lg md:text-xl mb-6">Delivering quality, customized garments for every need.</p>
-      <a href="#contact" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition">Get in Touch</a>
+    <div class="md:hidden">
+      <button @click="open = !open" class="text-green-600 focus:outline-none" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show="!open">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show="open">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16 bg-white px-4">
-    <div class="container mx-auto" data-aos="fade-right">
-      <h2 class="text-3xl font-bold mb-6">About Us</h2>
-      <p>SHE CARE – Sree Alagar Enterprises is your go-to for custom-made garments designed to fit exactly what you need—whether it’s stylish uniforms, branded clothing, or everyday wear. We mix quality craftsmanship with smart design and a close eye for detail to make sure every piece truly represents your brand. We're all about getting your order right and on time, with friendly, personalized service along the way. From your first idea to the final product, you can count on us for clothes that are comfortable, durable, and look great.</p>
+    <div class="hidden md:flex space-x-4">
+      <a href="#about" class="hover:text-green-600 transition">About</a>
+      <a href="#services" class="hover:text-green-600 transition">Services</a>
+      <a href="#contact" class="hover:text-green-600 transition">Contact</a>
+      <button onclick="document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' })" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Enquiry</button>
     </div>
-  </section>
+  </div>
 
-  <!-- Services Section -->
-  <section id="services" class="py-16 bg-gray-50 px-4">
-    <div class="container mx-auto" data-aos="fade-left">
-      <h2 class="text-3xl font-bold mb-6">Our Services</h2>
-      <ul class="list-disc list-inside space-y-2">
-        <li>Corporate & Retail Apparel</li>
-        <li>School & Sports Uniforms</li>
-        <li>Custom Embroidery & Printing</li>
-        <li>Tailored Sizing & Bulk Orders</li>
-      </ul>
+  <!-- Mobile Menu -->
+  <div class="md:hidden px-4 pt-2 pb-4 space-y-2 bg-white shadow" x-show="open" x-transition @click.away="open = false">
+    <a href="#about" @click="open = false" class="block hover:text-green-600 transition">About</a>
+    <a href="#services" @click="open = false" class="block hover:text-green-600 transition">Services</a>
+    <a href="#contact" @click="open = false" class="block hover:text-green-600 transition">Contact</a>
+    <button @click="open = false; document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Enquiry</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-36 md:pt-40 bg-green-50 text-center px-4 min-h-screen flex items-center">
+  <div class="container mx-auto" data-aos="fade-up">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Trusted Garment Partner</h1>
+    <p class="text-lg md:text-xl mb-6">Delivering quality, customized garments for every need.</p>
+    <a href="#contact" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition">Get in Touch</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16 bg-white px-4">
+  <div class="container mx-auto" data-aos="fade-right">
+    <h2 class="text-3xl font-bold mb-6">About Us</h2>
+    <p>SHE CARE – Sree Alagar Enterprises is your go-to for custom-made garments designed to fit exactly what you need—whether it’s stylish uniforms, branded clothing, or everyday wear. We mix quality craftsmanship with smart design and a close eye for detail to make sure every piece truly represents your brand. We're all about getting your order right and on time, with friendly, personalized service along the way. From your first idea to the final product, you can count on us for clothes that are comfortable, durable, and look great.</p>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-16 bg-gray-50 px-4">
+  <div class="container mx-auto" data-aos="fade-left">
+    <h2 class="text-3xl font-bold mb-6">Our Services</h2>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Corporate & Retail Apparel</li>
+      <li>School & Sports Uniforms</li>
+      <li>Custom Embroidery & Printing</li>
+      <li>Tailored Sizing & Bulk Orders</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-16 bg-white px-4">
+  <div class="container mx-auto" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+    <p class="mb-4 font-semibold text-lg">DM US OR CALL</p>
+    <p class="mb-2"><a href="tel:9442190903" class="text-green-600 hover:underline">94421 90903</a> | <a href="tel:8825498421" class="text-green-600 hover:underline">88254 98421</a></p>
+    <p class="mb-4">Email: <a href="mailto:shecare2011@gmail.com" class="text-blue-500 hover:underline">shecare2011@gmail.com</a></p>
+    <p class="mb-4">Based in:</p>
+    <p class="mb-4">GROUND FLOOR, NO.19/20 KEELS,<br />CHATIRAM ROAD (TAHSILDAR LANE),<br />THENNUR, TRICHY-620017</p>
+  </div>
+</section>
+
+<!-- WhatsApp Floating Button -->
+<div id="whatsapp-button" class="fixed top-1/2 right-4 transform -translate-y-1/2 z-50">
+  <a href="https://wa.me/919442190903" target="_blank" rel="noopener noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-12 h-12" />
+  </a>
+</div>
+
+<!-- Gallery Section -->
+<section class="py-16 bg-gray-100 px-4">
+  <div class="container mx-auto" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6 text-center">Our Work Gallery</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <img src="gallery1.jpg" alt="Gallery Image 1" class="w-full h-60 object-cover rounded shadow" />
+      <img src="gallery2.jpg" alt="Gallery Image 2" class="w-full h-60 object-cover rounded shadow" />
+      <img src="gallery3.jpg" alt="Gallery Image 3" class="w-full h-60 object-cover rounded shadow" />
+      <img src="gallery4.jpg" alt="Gallery Image 4" class="w-full h-60 object-cover rounded shadow" />
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-white px-4">
-    <div class="container mx-auto" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-      <p class="mb-4 font-semibold text-lg">DM US OR CALL</p>
-      <p class="mb-2"><a href="tel:9442190903" class="text-green-600 hover:underline">94421 90903</a> | <a href="tel:8825498421" class="text-green-600 hover:underline">88254 98421</a></p>
-      <p class="mb-4">Email: <a href="mailto:shecare2011@gmail.com" class="text-blue-500 hover:underline">shecare2011@gmail.com</a></p>
-      <p class="mb-4">Based in:</p>
-      <p class="mb-4">GROUND FLOOR, NO.19/20 KEELS,<br />CHATIRAM ROAD (TAHSILDAR LANE),<br />THENNUR, TRICHY-620017</p>
+<!-- Enquiry Form -->
+<section id="enquiry" class="py-16 bg-white px-4">
+  <div class="container mx-auto" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6 text-center">Garment Enquiry Form</h2>
+    <form id="my-form" action="https://formspree.io/f/xeogbqar" method="POST" class="space-y-4 max-w-xl mx-auto">
+      <label class="block">Email:</label>
+      <input type="email" name="email" required class="w-full border border-gray-300 px-3 py-2 rounded" />
+      <label class="block">Phone:</label>
+      <input type="tel" name="phone" required class="w-full border border-gray-300 px-3 py-2 rounded" />
+      <label class="block">Garment Enquiry:</label>
+      <textarea name="message" rows="4" required class="w-full border border-gray-300 px-3 py-2 rounded"></textarea>
+      <button type="submit" id="my-form-button" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Submit</button>
+      <p id="my-form-status" class="text-sm mt-2"></p>
+    </form>
+  </div>
+</section>
+
+<!-- Catalogue Section -->
+<section id="catalogue" class="max-w-5xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-semibold mb-6 text-center">Product Catalogue</h2>
+  <div class="w-full h-[80vh] shadow rounded overflow-hidden">
+    <iframe src="catalogue.pdf" class="w-full h-full" frameborder="0" allowfullscreen loading="lazy" title="Catalogue PDF"></iframe>
+  </div>
+  <div class="text-center mt-4">
+    <a href="catalogue.pdf" download class="text-white bg-green-600 px-6 py-2 rounded hover:bg-green-700 inline-block">Download PDF</a>
+  </div>
+</section>
+
+<!-- Location Map Section -->
+<section id="location" class="py-16 bg-white px-4">
+  <div class="container mx-auto" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6 text-center">Our Location</h2>
+    <div class="w-full h-96">
+      <iframe src="https://www.google.com/maps?q=10.8171988,78.6818535&z=15&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Gallery Section -->
-  <section class="py-16 bg-gray-100 px-4">
-    <div class="container mx-auto" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-6 text-center">Our Work Gallery</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <img src="gallery1.jpg" alt="Gallery Image 1" class="w-full h-60 object-cover rounded shadow" />
-        <img src="gallery2..jpg" alt="Gallery Image 2" class="w-full h-60 object-cover rounded shadow" />
-        <img src="gallery3..jpg" alt="Gallery Image 3" class="w-full h-60 object-cover rounded shadow" />
-        <img src="gallery4.jpg" alt="Gallery Image 4" class="w-full h-60 object-cover rounded shadow" />
-        <!-- Add more images as needed -->
-      </div>
-    </div>
-  </section>
+<!-- Footer -->
+<footer class="bg-green-600 text-white text-center py-4">
+  <p>&copy; 2025 SHE CARE – Sree Alagar Enterprises <br> All rights reserved.</p>
+</footer>
 
-  <!-- Enquiry Form -->
-  <section id="enquiry" class="py-16 bg-gray-50 px-4">
-    <div class="max-w-3xl mx-auto bg-white p-8 shadow-lg rounded" data-aos="zoom-in">
-      <h2 class="text-3xl font-bold mb-6 text-center">Garment Enquiry Form</h2>
-      <form action="https://formsubmit.co/shecare2011@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-4">
-        <input type="hidden" name="_subject" value="New Garment Enquiry" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="box" />
-        <input type="text" name="Full Name" placeholder="Full Name" required class="w-full border p-2 rounded" />
-        <input type="text" name="Contact Info" placeholder="Email or Phone" required class="w-full border p-2 rounded" />
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    AOS.init();
+    const mapSection = document.querySelector("#location");
+    const whatsappButton = document.getElementById("whatsapp-button");
+    if (mapSection && whatsappButton) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          whatsappButton.style.display = entry.isIntersecting ? "none" : "block";
+        });
+      }, { threshold: 0.3 });
+      observer.observe(mapSection);
+    }
 
-        <label class="block font-semibold">Garment Type:</label>
-        <div class="grid grid-cols-2 gap-2">
-          <label><input type="checkbox" name="Garment Type[]" value="T-Shirts" /> T-Shirts</label>
-          <label><input type="checkbox" name="Garment Type[]" value="Polo Shirts" /> Polo Shirts</label>
-          <label><input type="checkbox" name="Garment Type[]" value="Shirts" /> Shirts</label>
-          <label><input type="checkbox" name="Garment Type[]" value="Hoodies" /> Hoodies</label>
-          <label><input type="checkbox" name="Garment Type[]" value="Trousers" /> Trousers</label>
-          <label><input type="checkbox" name="Garment Type[]" value="Jackets" /> Jackets</label>
-          <label><input type="checkbox" name="Garment Type[]" value="Uniforms" /> Uniforms</label>
-          <input type="text" name="Garment Type Other" placeholder="Others (specify)" class="w-full border p-2 rounded col-span-2" />
-        </div>
-
-        <label class="block font-semibold">Purpose:</label>
-        <select name="Purpose" class="w-full border p-2 rounded">
-          <option>Corporate</option>
-          <option>Retail</option>
-          <option>School Uniform</option>
-          <option>Sports</option>
-          <option>Custom Fashion</option>
-          <option>Others</option>
-        </select>
-
-        <textarea name="Quantity and Sizes" rows="3" placeholder="Quantity & Sizes (e.g. 100 pcs – 40 M, 30 L, 30 XL)" class="w-full border p-2 rounded"></textarea>
-
-        <label class="block font-semibold">Fabric Preferences:</label>
-        <div class="grid grid-cols-2 gap-2">
-          <label><input type="checkbox" name="Fabric[]" value="Cotton" /> Cotton</label>
-          <label><input type="checkbox" name="Fabric[]" value="Polyester" /> Polyester</label>
-          <label><input type="checkbox" name="Fabric[]" value="Cotton-Poly Blend" /> Cotton-Poly Blend</label>
-          <label><input type="checkbox" name="Fabric[]" value="Organic Cotton" /> Organic Cotton</label>
-          <label><input type="checkbox" name="Fabric[]" value="No Preference" /> No Preference</label>
-        </div>
-
-        <label class="block font-semibold">Customization:</label>
-        <div class="grid grid-cols-2 gap-2">
-          <label><input type="checkbox" name="Customization[]" value="Embroidery" /> Embroidery</label>
-          <label><input type="checkbox" name="Customization[]" value="Screen Print" /> Screen Print</label>
-          <label><input type="checkbox" name="Customization[]" value="Digital Print" /> Digital Print</label>
-          <label><input type="checkbox" name="Customization[]" value="None" /> None</label>
-        </div>
-
-        <label class="block mt-2">Upload Design/Logo:</label>
-        <input type="file" name="Design Upload" class="w-full border p-2 rounded" />
-
-        <input type="text" name="Preferred Colors" placeholder="Preferred Colors" class="w-full border p-2 rounded" />
-        <textarea name="Delivery Info" rows="3" placeholder="Expected Delivery Date & Location" class="w-full border p-2 rounded"></textarea>
-
-        <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition w-full">Submit Enquiry</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-green-600 text-white py-6 mt-12">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2025 SHE CARE – Sree Alagar Enterprises. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      AOS.init();
+    const form = document.getElementById("my-form");
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+      const status = document.getElementById("my-form-status");
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset();
+        } else {
+          response.json().then(data => {
+            if (data.errors) {
+              status.innerHTML = data.errors.map(error => error.message).join(", ");
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form";
+            }
+          });
+        }
+      }).catch(() => {
+        status.innerHTML = "Oops! There was a problem submitting your form";
+      });
     });
-  </script>
+  });
+</script>
 </body>
 </html>
