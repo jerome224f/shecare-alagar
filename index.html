@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>SHE CARE – Sree Alagar Enterprises</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
 <body class="bg-white text-gray-800 overflow-x-hidden">
 
 <!-- Navbar -->
-<nav class="bg-white shadow fixed w-full z-50" x-data="{ open: false }">
+<nav class="bg-white shadow fixed w-full z-50 left-0 right-0" x-data="{ open: false }">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <div class="flex items-center space-x-3">
       <div class="logo-circle">
@@ -65,7 +65,7 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="pt-36 md:pt-40 bg-green-50 text-center px-4 min-h-screen flex items-center">
+<section class="pt-36 md:pt-40 bg-green-50 text-center px-4 min-h-screen flex items-center overflow-x-hidden">
   <div class="container mx-auto" data-aos="fade-up">
     <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Trusted Garment Partner</h1>
     <p class="text-lg md:text-xl mb-6">Delivering quality, customized garments for every need.</p>
@@ -73,13 +73,13 @@
   </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="py-16 bg-white px-4">
-  <div class="container mx-auto" data-aos="fade-right">
-    <h2 class="text-3xl font-bold mb-6">About Us</h2>
-    <p>SHE CARE – Sree Alagar Enterprises is your go-to for custom-made garments designed to fit exactly what you need—whether it’s stylish uniforms, branded clothing, or everyday wear. We mix quality craftsmanship with smart design and a close eye for detail to make sure every piece truly represents your brand. We're all about getting your order right and on time, with friendly, personalized service along the way. From your first idea to the final product, you can count on us for clothes that are comfortable, durable, and look great.</p>
-  </div>
-</section>
+<!-- About Section -->  
+<section id="about" class="py-16 bg-white px-4">  
+  <div class="container mx-auto" data-aos="fade-right">  
+    <h2 class="text-3xl font-bold mb-6">About Us</h2>  
+    <p>SHE CARE – Sree Alagar Enterprises is your go-to for custom-made garments designed to fit exactly what you need—whether it’s stylish uniforms, branded clothing, or everyday wear. We mix quality craftsmanship with smart design and a close eye for detail to make sure every piece truly represents your brand. We're all about getting your order right and on time, with friendly, personalized service along the way. From your first idea to the final product, you can count on us for clothes that are comfortable, durable, and look great.</p>  
+  </div>  
+</section>  
 
 <!-- Services Section -->
 <section id="services" class="py-16 bg-gray-50 px-4">
@@ -109,19 +109,19 @@
 <!-- WhatsApp Floating Button -->
 <div id="whatsapp-button" class="fixed top-1/2 right-4 transform -translate-y-1/2 z-50">
   <a href="https://wa.me/919442190903" target="_blank" rel="noopener noreferrer">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-12 h-12" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"class="w-12 h-12" />
   </a>
 </div>
 
 <!-- Gallery Section -->
-<section class="py-16 bg-gray-100 px-4">
+<section class="py-16 bg-gray-100 px-4 overflow-hidden">
   <div class="container mx-auto" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6 text-center">Our Work Gallery</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <img src="gallery1.jpg" alt="Gallery Image 1" class="w-full h-60 object-cover rounded shadow" />
-      <img src="gallery2..jpg" alt="Gallery Image 2" class="w-full h-60 object-cover rounded shadow" />
-      <img src="gallery3..jpg" alt="Gallery Image 3" class="w-full h-60 object-cover rounded shadow" />
-      <img src="gallery4.jpg" alt="Gallery Image 4" class="w-full h-60 object-cover rounded shadow" />
+      <img src="gallery1.jpg"loading="lazy" ... alt="Gallery Image 1" class="w-full h-60 object-cover rounded shadow" />
+      <img src="gallery2..jpg"loading="lazy" ... alt="Gallery Image 2" class="w-full h-60 object-cover rounded shadow" />
+      <img src="gallery3..jpg"loading="lazy" ... alt="Gallery Image 3" class="w-full h-60 object-cover rounded shadow" />
+      <img src="gallery4.jpg"loading="lazy" ... alt="Gallery Image 4" class="w-full h-60 object-cover rounded shadow" />
     </div>
   </div>
 </section>
@@ -155,7 +155,7 @@
 <section id="location" class="py-16 bg-white px-4">
   <div class="container mx-auto" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6 text-center">Our Location</h2>
-    <div class="w-full h-96">
+    <div class="w-full h-96 overflow-hidden">
       <iframe src="https://www.google.com/maps?q=10.8171988,78.6818535&z=15&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
