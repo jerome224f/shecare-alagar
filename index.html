@@ -8,20 +8,56 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <style>
-    .logo-circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 9999px;
-      overflow: hidden;
-      border: 2px solid #10b981;
+ <style>
+  /* Logo Circle */
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 9999px;
+    overflow: hidden;
+    border: 2px solid #10b981;
+  }
+  .logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* Floating Background Animation (optional, not actively used but defined) */
+  @keyframes float1 {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200vh); }
+  }
+  @keyframes float2 {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-200vh) scale(1.2); }
+  }
+
+  /* WhatsApp Button Customization (Optional style additions if needed) */
+  #whatsapp-button img {
+    transition: transform 0.3s ease;
+  }
+  #whatsapp-button:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Catalogue PDF Styling */
+  iframe[title="Catalogue PDF"] {
+    border: none;
+  }
+
+  /* Responsive tweaks for small screens */
+  @media (max-width: 768px) {
+    .text-4xl {
+      font-size: 1.875rem;
     }
-    .logo-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .text-5xl {
+      font-size: 2.25rem;
     }
-  </style>
+    .min-h-screen {
+      min-height: 80vh;
+    }
+  }
+</style>
 <body class="bg-white text-gray-800 overflow-x-hidden">
 
 <!-- Navbar -->
