@@ -210,37 +210,73 @@
     <p class="mb-4">Based in:</p>
     <p class="mb-4">GROUND FLOOR, NO.19/20 KEELS,<br />CHATIRAM ROAD (TAHSILDAR LANE),<br />THENNUR, TRICHY-620017</p>
   </div>
-</section>
-<section class="py-16 bg-white text-center" data-aos="zoom-in">
-  <h2 class="text-3xl font-bold mb-8">Our Achievements</h2>
-  <div class="flex justify-center gap-12 text-green-600 text-4xl font-bold">
-    <div><span id="clients">400</span>+ Clients</div>
-    <div><span id="orders">3000</span>+ Orders</div>
-    <div><span id="years">16</span> Years</div>
+<section id="achievements" class="py-16 bg-white text-center" data-aos="zoom-in">
+  <h2 class="text-3xl md:text-4xl font-bold mb-10">Our Achievements</h2>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-items-center text-green-600">
+    <!-- Clients -->
+    <div class="text-3xl md:text-4xl font-bold">
+      <span id="clients">0</span>+<br />
+      <span class="text-base md:text-lg font-medium text-gray-700">Clients</span>
+    </div>
+    
+    <!-- Orders -->
+    <div class="text-3xl md:text-4xl font-bold">
+      <span id="orders">0</span>+<br />
+      <span class="text-base md:text-lg font-medium text-gray-700">Orders</span>
+    </div>
+    
+    <!-- Years -->
+    <div class="text-3xl md:text-4xl font-bold">
+      <span id="years">0</span><br />
+      <span class="text-base md:text-lg font-medium text-gray-700">Years of Experience</span>
+    </div>
   </div>
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = [
-      { id: "clients", end: 500 },
-      { id: "orders", end: 1200 },
-      { id: "years", end: 10 }
-    ];
+  const counters = [
+    { id: "clients", end: 400 },
+    { id: "orders", end: 3000 },
+    { id: "years", end: 16 }
+  ];
+
+  let animated = false;
+
+  function animateCounters() {
+    if (animated) return;
+    animated = true;
+
     counters.forEach(({ id, end }) => {
-      let i = 0;
       const el = document.getElementById(id);
-      const step = Math.ceil(end / 100);
+      let count = 0;
+      const step = Math.max(1, Math.ceil(end / 100));
       const interval = setInterval(() => {
-        i += step;
-        if (i >= end) {
+        count += step;
+        if (count >= end) {
           el.innerText = end;
           clearInterval(interval);
         } else {
-          el.innerText = i;
+          el.innerText = count;
         }
       }, 20);
     });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("achievements");
+    if (!section) return;
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(section);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    observer.observe(section);
   });
 </script>
 <!-- WhatsApp Floating Button -->
