@@ -439,9 +439,10 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
   </div>
 </section>
-<!-- ✅ Google Translate Integration -->
+<!-- Google Translate Element (Hidden) -->
 <div id="google_translate_element" style="display:none;"></div>
 
+<!-- Google Translate Script -->
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -453,48 +454,46 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- ✅ Floating Language Buttons -->
+<!-- Language Switch Buttons -->
 <div class="fixed bottom-4 left-4 z-50 space-y-2">
-  <button onclick="changeLanguage('ta')" class="bg-yellow-400 px-4 py-2 rounded shadow text-black hover:bg-yellow-500">
-    தமிழ்
-  </button>
-  <button onclick="changeLanguage('en')" class="bg-blue-500 px-4 py-2 rounded shadow text-white hover:bg-blue-600">
-    English
-  </button>
+  <a href="?hl=ta" class="bg-yellow-400 px-4 py-2 rounded shadow text-black hover:bg-yellow-500">தமிழ்</a>
+  <a href="?hl=en" class="bg-blue-500 px-4 py-2 rounded shadow text-white hover:bg-blue-600">English</a>
 </div>
 
-<!-- ✅ Language Switch Logic (Stable via URL hash) -->
+<!-- Auto-trigger Google Translate based on URL -->
 <script>
-  function changeLanguage(lang) {
-    const googleFrame = document.querySelector('iframe.goog-te-menu-frame');
-    if (!googleFrame) {
-      alert("Please wait for Google Translate to load...");
-      return;
-    }
+  function triggerTranslateByURL() {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('hl');
+    if (!lang || lang === 'en') return; // Skip if English or not set
 
-    const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
-    const buttons = innerDoc.querySelectorAll('.goog-te-menu2-item span.text');
+    const interval = setInterval(() => {
+      const frame = document.querySelector('iframe.goog-te-menu-frame');
+      if (!frame) return;
 
-    buttons.forEach(function(btn) {
-      if (btn.innerText.toLowerCase().includes(lang)) {
-        btn.click();
-      }
-    });
+      const innerDoc = frame.contentDocument || frame.contentWindow.document;
+      const options = innerDoc.querySelectorAll('.goog-te-menu2-item span.text');
+      options.forEach(el => {
+        if (el.innerText.toLowerCase().includes(lang)) {
+          el.click();
+          clearInterval(interval);
+        }
+      });
+    }, 500);
   }
+
+  window.addEventListener("load", triggerTranslateByURL);
 </script>
 
-<!-- ✅ Clean Up Google UI -->
+<!-- Hide default Google UI -->
 <style>
   .goog-te-banner-frame.skiptranslate,
-  .goog-logo-link,
-  .goog-te-gadget-icon {
+  .goog-te-gadget-icon,
+  .goog-logo-link {
     display: none !important;
   }
   body {
     top: 0px !important;
-  }
-  .goog-te-menu-frame {
-    z-index: 9999 !important;
   }
 </style>
 <!-- Footer -->
