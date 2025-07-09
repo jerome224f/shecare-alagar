@@ -439,10 +439,9 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
   </div>
 </section>
-<!-- 🌐 Google Translate: Tamil + English Toggle -->
+<!-- ✅ Google Translate Integration -->
+<div id="google_translate_element" style="display:none;"></div>
 
-<!-- Google Translate Initialization -->
-<div id="google_translate_element" class="hidden"></div>
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -452,41 +451,42 @@ s0.parentNode.insertBefore(s1,s0);
     }, 'google_translate_element');
   }
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- Floating Language Toggle Buttons -->
+<!-- ✅ Floating Language Buttons -->
 <div class="fixed bottom-4 left-4 z-50 space-y-2">
-  <button onclick="changeLanguage('ta')" class="bg-yellow-400 px-3 py-2 rounded shadow text-black hover:bg-yellow-500">
+  <button onclick="changeLanguage('ta')" class="bg-yellow-400 px-4 py-2 rounded shadow text-black hover:bg-yellow-500">
     தமிழ்
   </button>
-  <button onclick="changeLanguage('en')" class="bg-blue-500 px-3 py-2 rounded shadow text-white hover:bg-blue-600">
+  <button onclick="changeLanguage('en')" class="bg-blue-500 px-4 py-2 rounded shadow text-white hover:bg-blue-600">
     English
   </button>
 </div>
 
-<!-- Language Toggle Logic -->
+<!-- ✅ Language Switch Logic (Stable via URL hash) -->
 <script>
   function changeLanguage(lang) {
-    const interval = setInterval(() => {
-      const frame = document.querySelector('iframe.goog-te-menu-frame');
-      if (!frame) return;
+    const googleFrame = document.querySelector('iframe.goog-te-menu-frame');
+    if (!googleFrame) {
+      alert("Please wait for Google Translate to load...");
+      return;
+    }
 
-      const innerDoc = frame.contentDocument || frame.contentWindow.document;
-      const langOptions = innerDoc.querySelectorAll('.goog-te-menu2-item span.text');
+    const innerDoc = googleFrame.contentDocument || googleFrame.contentWindow.document;
+    const buttons = innerDoc.querySelectorAll('.goog-te-menu2-item span.text');
 
-      langOptions.forEach(function(el) {
-        if (el.innerText.toLowerCase().includes(lang)) {
-          el.click();
-          clearInterval(interval); // Stop once language is selected
-        }
-      });
-    }, 500); // Check every 500ms
+    buttons.forEach(function(btn) {
+      if (btn.innerText.toLowerCase().includes(lang)) {
+        btn.click();
+      }
+    });
   }
 </script>
 
-<!-- Hide Default Google Translate Bar and Icon -->
+<!-- ✅ Clean Up Google UI -->
 <style>
   .goog-te-banner-frame.skiptranslate,
+  .goog-logo-link,
   .goog-te-gadget-icon {
     display: none !important;
   }
