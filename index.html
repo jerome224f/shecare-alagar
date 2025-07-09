@@ -311,6 +311,54 @@
     </div>
   </div>
 </section>
+<!-- SHE CARE – Premium Fabric Swapper -->
+<section class="py-16 bg-[#f8fafc] text-center px-4">
+  <h2 class="text-3xl md:text-4xl font-bold text-[#0f172a] mb-6 tracking-wide">
+    Explore Our Premium Fabrics
+  </h2>
+  <p class="text-[#475569] max-w-xl mx-auto mb-10 text-base md:text-lg">
+    Click and preview our finest fabric selections. Each piece is designed for comfort, style, and elegance.
+  </p>
+
+  <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl p-6 border border-[#e2e8f0]">
+    <!-- Main Fabric Preview -->
+    <img id="fabricImage"
+         src="/assets/images/19dbbfccca130796385d48faf9bce67f.jpg"
+         alt="Fabric Preview"
+         class="w-full h-72 object-cover rounded-xl border border-[#cbd5e1] shadow-md transition duration-300 ease-in-out hover:scale-105" />
+
+    <!-- Fabric Option Buttons -->
+    <div class="flex justify-center flex-wrap gap-3 mt-6">
+      <button onclick="changeFabric('19dbbfccca130796385d48faf9bce67f.jpg')"
+              class="px-4 py-2 bg-[#10b981] hover:bg-[#059669] text-white rounded-full text-sm shadow-md transition">
+        Cotton Shine
+      </button>
+      <button onclick="changeFabric('bb42220c03c367a2a13b3bd872d6fd57.jpg')"
+              class="px-4 py-2 bg-[#ec4899] hover:bg-[#db2777] text-white rounded-full text-sm shadow-md transition">
+        Soft Silk
+      </button>
+      <button onclick="changeFabric('e07e774e807f23fe0c67dbd63aa69d07.jpg')"
+              class="px-4 py-2 bg-[#f59e0b] hover:bg-[#d97706] text-white rounded-full text-sm shadow-md transition">
+        Classic Linen
+      </button>
+      <button onclick="changeFabric('edd4d24f78af69f8980148deafc01290.jpg')"
+              class="px-4 py-2 bg-[#6366f1] hover:bg-[#4f46e5] text-white rounded-full text-sm shadow-md transition">
+        Festive Fancy
+      </button>
+      <button onclick="changeFabric('f74956e97157c565f7e1ec36195c0c2e.jpg')"
+              class="px-4 py-2 bg-[#f472b6] hover:bg-[#ec4899] text-white rounded-full text-sm shadow-md transition">
+        Royal Brocade
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- 🔄 Fabric Image Swap Script -->
+<script>
+  function changeFabric(filename) {
+    document.getElementById("fabricImage").src = "/assets/images/" + filename;
+  }
+</script>
   <!-- Video Showcase Section -->
 <section id="video" class="py-16 bg-white px-4">
   <div class="container mx-auto text-center" data-aos="fade-up">
