@@ -303,67 +303,7 @@
     </div>
   </div>
 </section>
-<!-- ✅ SHE CARE – Premium Fabric Swapper -->
-<section class="py-16 bg-[#f8fafc] text-center px-4">
-  <h2 class="text-3xl md:text-4xl font-bold text-[#0f172a] mb-4 tracking-wide">
-    Explore Our Premium Fabrics
-  </h2>
-  <p class="text-[#475569] max-w-xl mx-auto mb-8 text-base md:text-lg">
-    Tap below to view each fabric in full. Experience the colors and textures that define SHE CARE elegance.
-  </p>
 
-  <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl p-6 border border-[#e2e8f0]">
-    <!-- Fabric Preview -->
-    <img id="fabricImage"
-         src="/assets/images/19dbbfccca130796385d48faf9bce67f.jpg"
-         alt="Fabric Preview"
-         class="w-full h-72 object-cover rounded-xl border border-[#cbd5e1] shadow-md transition duration-300 ease-in-out hover:scale-105" />
-
-    <!-- Swatches (Thumbnails with Hover Label) -->
-    <div class="flex justify-center flex-wrap gap-4 mt-6">
-      <!-- 1 -->
-      <button onclick="changeFabric('19dbbfccca130796385d48faf9bce67f.jpg')"
-              title="classic"
-              class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow hover:ring-2 ring-[#10b981] transition">
-        <img src="/assets/images/19dbbfccca130796385d48faf9bce67f.jpg" alt="Cotton" class="w-full h-full object-cover">
-      </button>
-      <!-- 2 -->
-      <button onclick="changeFabric('bb42220c03c367a2a13b3bd872d6fd57.jpg')"
-              title="classic"
-              class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow hover:ring-2 ring-[#ec4899] transition">
-        <img src="/assets/images/bb42220c03c367a2a13b3bd872d6fd57.jpg" alt="Silk" class="w-full h-full object-cover">
-      </button>
-      <!-- 3 -->
-      <button onclick="changeFabric('e07e774e807f23fe0c67dbd63aa69d07.jpg')"
-              title="Classic"
-              class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow hover:ring-2 ring-[#f59e0b] transition">
-        <img src="/assets/images/e07e774e807f23fe0c67dbd63aa69d07.jpg" alt="Linen" class="w-full h-full object-cover">
-      </button>
-      <!-- 4 -->
-      <button onclick="changeFabric('edd4d24f78af69f8980148deafc01290.jpg')"
-              title="Classic"
-              class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow hover:ring-2 ring-[#6366f1] transition">
-        <img src="/assets/images/edd4d24f78af69f8980148deafc01290.jpg" alt="Fancy" class="w-full h-full object-cover">
-      </button>
-      <!-- 5 -->
-      <button onclick="changeFabric('f74956e97157c565f7e1ec36195c0c2e.jpg')"
-              title="Classic"
-              class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow hover:ring-2 ring-[#f472b6] transition">
-        <img src="/assets/images/f74956e97157c565f7e1ec36195c0c2e.jpg" alt="Brocade" class="w-full h-full object-cover">
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- 🔄 Fabric Image Swap Script -->
-<script>
-  function changeFabric(filename) {
-    const image = document.getElementById("fabricImage");
-    if (image) {
-      image.src = "/assets/images/" + filename;
-    }
-  }
-</script>
   <!-- Video Showcase Section -->
 <section id="video" class="py-16 bg-white px-4">
   <div class="container mx-auto text-center" data-aos="fade-up">
@@ -412,7 +352,6 @@
   </div>  
 </section>
  
-
 <!-- Catalogue Section -->
 <section id="catalogue" class="max-w-5xl mx-auto px-4 py-16">
   <h2 class="text-3xl font-semibold mb-6 text-center">Product Catalogue</h2>
