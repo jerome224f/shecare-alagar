@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>SHE CARE – Sree Alagar Enterprises</title>
-  <!-- Favicon -->
   <link rel="shortcut icon" href="https://sreealagarenterprises.in/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="https://sreealagarenterprises.in/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="https://sreealagarenterprises.in/favicon-32x32.png">
@@ -25,42 +24,19 @@
       --dark: #0f172a;
     }
 
-    /<!-- Logo Circle HTML -->
-<div class="logo-circle">
-  <img src="logo.jpg" alt="SHE CARE Logo">
-</div>
-
-<!-- Logo Circle CSS -->
-<style>
-  .logo-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 9999px;
-    overflow: hidden;
-    border: 2px solid var(--primary);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-
-  .logo-circle:hover {
-    transform: scale(1.05);
-    border-color: var(--secondary);
-  }
-
-  :root {
-    --primary: #e91e63;
-    --secondary: #3f51b5;
-  }
-</style>
+    /* Logo Circle */
+    .logo-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 9999px;
+      overflow: hidden;
+      border: 2px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+    .logo-circle:hover {
+      transform: scale(1.05);
+      border-color: var(--secondary);
+    }
 
     /* Floating Background Animation */
     @keyframes float1 {
@@ -445,33 +421,29 @@
     }
   </style>
   
-  <!-- SEO Meta Tags -->
   <meta name="title" content="SHE CARE – Sree Alagar Enterprises | Custom Uniforms & Tailoring in Trichy" />
   <meta name="description" content="SHE CARE by Sree Alagar Enterprises is Trichy's trusted source for custom-made uniforms and garments. We specialize in school uniforms, hospital wear, corporate clothing, and embroidery with on-time delivery across Tamil Nadu." />
   <meta name="keywords" content="SHE CARE, custom uniforms Trichy, garment manufacturer Tamil Nadu, embroidery services, school uniforms Trichy, hospital uniforms, corporate uniforms, tailoring Trichy, women garments, custom tailoring Trichy" />
   <meta name="author" content="Sree Alagar Enterprises" />
   <link rel="canonical" href="https://sreealagarenterprises.in/" />
 
-  <!-- Open Graph Meta Tags for Facebook/LinkedIn -->
   <meta property="og:title" content="SHE CARE – Sree Alagar Enterprises | Custom Uniforms & Tailoring in Trichy" />
   <meta property="og:description" content="Leading garment manufacturer in Trichy delivering premium school uniforms, corporate wear, and embroidery services across Tamil Nadu." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.shecaregarments.com/" />
-  <meta property="og:image" content="https://sreealagarenterprises.in/logo.jpg" />
+  <meta property="og:image" content="logo.jpg" />
 
-  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SHE CARE – Sree Alagar Enterprises" />
   <meta name="twitter:description" content="Trusted uniform tailor in Trichy offering quality garments and embroidery. School, hospital, and business wear tailored to perfection." />
-  <meta name="twitter:image" content="https://sreealagarenterprises.in/logo.jpg" />
+  <meta name="twitter:image" content="logo.jpg" />
 
-  <!-- Structured Data for Google (Local Business) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "SHE CARE – Sree Alagar Enterprises",
-    "image": "https://sreealagarenterprises.in/logo.jpg",
+    "image": "logo.jpg",
     "telephone": "‪+919442190903‬",
     "email": "shecare2011@gmail.com",
     "address": {
@@ -491,19 +463,17 @@
   </script>
 </head>
 <body class="bg-white text-gray-800 overflow-x-hidden">
-  <!-- Floating Background Elements -->
   <div class="floating-bg">
     <div class="floating-element w-64 h-64 -left-32 -top-32" style="animation-name: float1; animation-duration: 25s;"></div>
     <div class="floating-element w-48 h-48 right-20 top-1/4" style="animation-name: float1; animation-duration: 30s; animation-delay: 2s;"></div>
     <div class="floating-element w-36 h-36 left-1/4 bottom-32" style="animation-name: float1; animation-duration: 35s; animation-delay: 5s;"></div>
   </div>
 
-  <!-- Navbar -->
   <nav class="bg-white shadow fixed w-full z-50 left-0 right-0" x-data="{ open: false }">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-3">
         <div class="logo-circle">
-          <img src="https://via.placeholder.com/60" alt="SHE CARE Logo" />
+          <img src="logo.jpg" alt="SHE CARE Logo" />
         </div>
         <div>
           <div class="text-xl md:text-2xl font-bold text-green-600">SHE CARE</div>
@@ -530,7 +500,6 @@
       </div>
     </div>
 
-    <!-- Mobile Menu -->
     <div class="md:hidden px-4 pt-2 pb-4 space-y-2 bg-white shadow" x-show="open" x-transition @click.away="open = false">
       <a href="#about" @click="open = false" class="block hover:text-green-600 transition">About</a>
       <a href="#services" @click="open = false" class="block hover:text-green-600 transition">Services</a>
@@ -541,7 +510,6 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="pt-36 md:pt-40 bg-gradient-to-br from-green-50 to-amber-50 text-center px-4 min-h-screen flex items-center overflow-x-hidden">
     <div class="container mx-auto" data-aos="fade-up">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Trusted <span class="gradient-text">Garment Partner</span></h1>
@@ -553,7 +521,6 @@
     </div>
   </section>
 
-  <!-- About Section -->  
   <section id="about" class="section-padding bg-white">  
     <div class="container mx-auto" data-aos="fade-right">  
       <div class="section-title">
@@ -590,7 +557,6 @@
     </div>  
   </section>  
 
-  <!-- Services Section -->
   <section id="services" class="section-padding bg-gray-50">
     <div class="container mx-auto" data-aos="fade-left">
       <div class="section-title">
@@ -635,7 +601,6 @@
     </div>
   </section>
 
-  <!-- Achievements Section -->
   <section id="achievements" class="section-padding bg-white text-center" data-aos="zoom-in">
     <div class="container mx-auto">
       <div class="section-title">
@@ -644,7 +609,6 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-items-center text-green-600">
-        <!-- Clients -->
         <div class="premium-card p-8">
           <div class="text-4xl md:text-5xl font-bold mb-2">
             <span id="clients">0</span>+
@@ -652,7 +616,6 @@
           <div class="text-xl font-medium text-gray-700">Satisfied Clients</div>
         </div>
 
-        <!-- Orders -->
         <div class="premium-card p-8">
           <div class="text-4xl md:text-5xl font-bold mb-2">
             <span id="orders">0</span>+
@@ -660,7 +623,6 @@
           <div class="text-xl font-medium text-gray-700">Completed Orders</div>
         </div>
 
-        <!-- Years -->
         <div class="premium-card p-8">
           <div class="text-4xl md:text-5xl font-bold mb-2">
             <span id="years">0</span>+
@@ -671,60 +633,64 @@
     </div>
   </section>
 
-  <!-- Gallery Section -->
   <section id="gallery" class="section-padding bg-gray-50 overflow-hidden">
     <div class="container mx-auto" data-aos="fade-up">
       <div class="section-title">
         <h2>Our Work Gallery</h2>
         <div class="divider"></div>
-        <p class="mt-4 max-w-2xl mx-auto">Explore our premium works </p>
+        <p class="mt-4 max-w-2xl mx-auto">Explore our premium garment creations</p>
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('https://via.placeholder.com/600x400')">
-          <img src="Gallery1.jpg" alt="Gallery image 1" loading="lazy" />
+        <div class="gallery-item" onclick="openLightbox('gallery1.jpg')">
+          <img src="gallery1.jpg" alt="Gallery Image 1" loading="lazy" />
           <div class="gallery-overlay">
             <h3 class="font-bold">Corporate Uniforms</h3>
           </div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('https://via.placeholder.com/600x400')">
-          <img src="Gallery2..jpg" alt="Gallery image 2" loading="lazy" />
+        <div class="gallery-item" onclick="openLightbox('gallery2..jpg')">
+          <img src="gallery2..jpg" alt="Gallery Image 2" loading="lazy" />
           <div class="gallery-overlay">
             <h3 class="font-bold">School Uniforms</h3>
           </div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('https://via.placeholder.com/600x400')">
-          <img src="Gallery3..jpg" alt="Gallery image 3" loading="lazy" />
+        <div class="gallery-item" onclick="openLightbox('gallery3..jpg')">
+          <img src="gallery3..jpg" alt="Gallery Image 3" loading="lazy" />
           <div class="gallery-overlay">
             <h3 class="font-bold">Embroidery Work</h3>
           </div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('https://via.placeholder.com/600x400')">
-          <img src="Gallery4.jpg" alt="Gallery image 4" loading="lazy" />
+        <div class="gallery-item" onclick="openLightbox('gallery4.jpg')">
+          <img src="gallery4.jpg" alt="Gallery Image 4" loading="lazy" />
           <div class="gallery-overlay">
             <h3 class="font-bold">Hospital Uniforms</h3>
           </div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('https://via.placeholder.com/600x400')">
-          <img src="Gallery5.jpg" alt="Gallery image 5" loading="lazy" />
+        <div class="gallery-item" onclick="openLightbox('gallery5.jpg')">
+          <img src="gallery5.jpg" alt="Gallery Image 5" loading="lazy" />
           <div class="gallery-overlay">
             <h3 class="font-bold">Custom Tailoring</h3>
           </div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('https://via.placeholder.com/600x400')">
-          <img src="Gallery6.jpg" alt="Gallery image 6" loading="lazy" />
+        <div class="gallery-item" onclick="openLightbox('gallery10.jpg')">
+          <img src="gallery10.jpg" alt="Gallery Image 6" loading="lazy" />
           <div class="gallery-overlay">
             <h3 class="font-bold">Fabric Selection</h3>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox('gallery11.jpg')">
+          <img src="gallery11.jpg" alt="Gallery Image 7" loading="lazy" />
+          <div class="gallery-overlay">
+            <h3 class="font-bold">Miscellaneous</h3>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-content">
-      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <span class="lightbox-close" onclick="closeLightbox()">×</span>
       <img id="lightbox-img" class="lightbox-img" src="" alt="" />
       <div class="lightbox-nav">
         <div class="lightbox-btn" onclick="prevImage()">
@@ -737,7 +703,6 @@
     </div>
   </div>
 
-  <!-- Video Showcase Section -->
   <section id="video" class="section-padding bg-white">
     <div class="container mx-auto text-center" data-aos="fade-up">
       <div class="section-title">
@@ -754,12 +719,11 @@
     </div>
   </section>
 
-  <!-- Proprietor Section -->
   <section class="section-padding bg-gray-50">
     <div class="container mx-auto flex flex-col md:flex-row items-center gap-10" data-aos="fade-up">
       <div class="md:w-1/3 flex justify-center">
         <div class="premium-card overflow-hidden w-64 h-64 rounded-full">
-          <img src="gallery8.jpg" class="w-full h-full object-cover" alt="Proprietor" />
+          <img src="https://via.placeholder.com/300x300" class="w-full h-full object-cover" alt="Proprietor" />
         </div>
       </div>
       <div class="md:w-2/3 text-center md:text-left">
@@ -784,7 +748,6 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
   <section class="section-padding bg-white">
     <div class="container mx-auto" data-aos="fade-up">
       <div class="section-title">
@@ -851,7 +814,6 @@
     </div>
   </section>
 
-  <!-- Awards Section -->
   <section class="section-padding bg-gray-50 text-center">  
     <div class="container mx-auto" data-aos="fade-up">
       <div class="section-title">
@@ -877,7 +839,6 @@
     </div>
   </section>
 
-  <!-- Catalogue Section -->
   <section id="catalogue" class="section-padding bg-white">
     <div class="container mx-auto max-w-5xl" data-aos="fade-up">
       <div class="section-title">
@@ -892,7 +853,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="section-padding bg-gray-50">
     <div class="container mx-auto" data-aos="fade-up">
       <div class="section-title">
@@ -1009,7 +969,6 @@
     </div>
   </section>
   
-  <!-- Location Map Section -->
   <section id="location" class="section-padding bg-white">
     <div class="container mx-auto" data-aos="fade-up">
       <div class="section-title">
@@ -1018,12 +977,11 @@
       </div>
 
       <div class="premium-card overflow-hidden">
-        <iframe src="https://www.google.com/maps?q=10.8171988,78.6818535&z=15&output=embed" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.421689531518!2d78.70582237424618!3d10.865360657929424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5671d2b700b%3A0x19d9b6d61f1c7d37!2sSHE%20CARE%20-%20SREE%20ALAGAR%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1721865668972!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter Section -->
   <section class="py-16 bg-green-600 text-white">
     <div class="container mx-auto px-4 text-center" data-aos="fade-up">
       <h2 class="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
@@ -1036,19 +994,16 @@
     </div>
   </section>
 
-  <!-- WhatsApp Floating Button -->
   <div id="whatsapp-button" class="fixed top-1/2 right-4 transform -translate-y-1/2 z-50">
     <a href="https://wa.me/919442190903" target="_blank" rel="noopener noreferrer">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-12 h-12" />
     </a>
   </div>
 
-  <!-- Scroll to Top Button -->
   <div class="scroll-top" onclick="scrollToTop()">
     <i class="fas fa-arrow-up"></i>
   </div>
 
-  <!-- Language Switcher -->
   <div class="language-switcher">
     <a href="?hl=ta" class="lang-btn bg-yellow-400 text-black">
       <i class="fas fa-language"></i>
@@ -1060,16 +1015,15 @@
     </a>
   </div>
 
-  <!-- Google Translate Element (Hidden) -->
   <div id="google_translate_element" style="display:none;"></div>
 
-  <!-- Footer -->
   <footer class="bg-green-800 text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <div class="logo-circle">  <img src="logo.jpg" alt="SHE CARE Logo" />
+            <div class="logo-circle">
+              <img src="logo.jpg" alt="SHE CARE Logo" />
             </div>
             <div>
               <div class="text-xl font-bold">SHE CARE</div>
@@ -1121,12 +1075,11 @@
       </div>
 
       <div class="border-t border-green-700 mt-10 pt-6 text-center">
-        <p>&copy; 2025 SHE CARE – Sree Alagar Enterprises. All rights reserved.</p>
+        <p>© 2025 SHE CARE – Sree Alagar Enterprises. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Tawk.to Script -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -1139,7 +1092,6 @@
     })();
   </script>
 
-  <!-- Google Translate Script -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -1322,12 +1274,13 @@
 
     // Gallery lightbox
     const galleryImages = [
-      'https://via.placeholder.com/600x400',
-      'https://via.placeholder.com/600x400',
-      'https://via.placeholder.com/600x400',
-      'https://via.placeholder.com/600x400',
-      'https://via.placeholder.com/600x400',
-      'https://via.placeholder.com/600x400'
+      'gallery1.jpg',
+      'gallery2..jpg',
+      'gallery3..jpg',
+      'gallery4.jpg',
+      'gallery5.jpg',
+      'gallery10.jpg',
+      'gallery11.jpg'
     ];
     let currentImageIndex = 0;
 
@@ -1382,4 +1335,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
