@@ -25,22 +25,42 @@
       --dark: #0f172a;
     }
 
-    /* Logo Circle */
-    .logo-circle {
-      <div class="logo-circle">
-  <img src="logo.jpg" alt="SHE CARE Logo" />
+    /<!-- Logo Circle HTML -->
+<div class="logo-circle">
+  <img src="logo.jpg" alt="SHE CARE Logo">
 </div>
-      width: 60px;
-      height: 60px;
-      border-radius: 9999px;
-      overflow: hidden;
-      border: 2px solid var(--primary);
-      transition: all 0.3s ease;
-    }
-    .logo-circle:hover {
-      transform: scale(1.05);
-      border-color: var(--secondary);
-    }
+
+<!-- Logo Circle CSS -->
+<style>
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 9999px;
+    overflow: hidden;
+    border: 2px solid var(--primary);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-circle:hover {
+    transform: scale(1.05);
+    border-color: var(--secondary);
+  }
+
+  :root {
+    --primary: #e91e63;
+    --secondary: #3f51b5;
+  }
+</style>
 
     /* Floating Background Animation */
     @keyframes float1 {
